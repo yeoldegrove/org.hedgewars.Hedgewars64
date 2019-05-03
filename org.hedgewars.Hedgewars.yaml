@@ -439,8 +439,8 @@ modules:
       - --without-xml
     sources:
       - type: archive
-        url: https://imagemagick.org/download/ImageMagick-7.0.8-39.zip
-        sha256: 4508189b9c87012464613861826ac7a557cf78206b0e6ff3782410a13f621488
+        url: https://imagemagick.org/download/ImageMagick-7.0.8-43.zip
+        sha256: afdcb9e012c400da677fabc49016255943bdbb5dbaab3ce5ec84f24660a3cda2
     cleanup:
       - '*'
 
