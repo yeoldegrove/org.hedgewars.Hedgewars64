@@ -452,8 +452,8 @@ modules:
     post-install:
       - |
         for _size in 16 32 48 64 128 256 512; do
-          convert +set date:create +set date:modify misc/hedgewars.png -resize ${_size}x${_size} hedgewars_${_size}.png
-          install -Dm0644 hedgewars_${_size}.png /app/share/icons/hicolor/${_size}x${_size}/apps/hedgewars.png
+          convert +set date:create +set date:modify misc/hedgewars.png -resize ${_size}x${_size} hedgewars_${_size}.png || exit 1
+          install -Dm0644 hedgewars_${_size}.png /app/share/icons/hicolor/${_size}x${_size}/apps/hedgewars.png || exit 1
         done
     sources:
       - type: archive
