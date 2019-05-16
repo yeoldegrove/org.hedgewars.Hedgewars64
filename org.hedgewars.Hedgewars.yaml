@@ -438,9 +438,10 @@ modules:
       - --with-wmf=no
       - --without-xml
     sources:
-      - type: archive
-        url: https://imagemagick.org/download/ImageMagick-7.0.8-43.zip
-        sha256: afdcb9e012c400da677fabc49016255943bdbb5dbaab3ce5ec84f24660a3cda2
+      - type: git
+        url: https://github.com/ImageMagick/ImageMagick
+        tag: 7.0.8-45
+        commit: dd952736f745d7dd9d1e0b8bb20e6384f10da139
     cleanup:
       - '*'
 
