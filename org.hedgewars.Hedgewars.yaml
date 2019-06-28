@@ -69,13 +69,13 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://downloads.haskell.org/~ghc/8.6.4/ghc-8.6.4-x86_64-deb9-linux.tar.xz
-        sha256: ef74222ef3c01c3fc5b926f67e8b4ef612fe8efa40ac937317cff9b0eed8d863
+        url: https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-x86_64-deb9-linux.tar.xz
+        sha256: bc75f5601a9f41d58b2ba161b9e28fad52143a7229060f1e084168d9b2e914df
         only-arches:
           - x86_64
       - type: archive
-        url: https://downloads.haskell.org/~ghc/8.6.4/ghc-8.6.4-i386-deb9-linux.tar.xz
-        sha256: 5e2ce88f4d13d23ac37e278e0c7b51c801008931359b9fa8a631d804d2da552c
+        url: https://downloads.haskell.org/~ghc/8.6.5/ghc-8.6.5-i386-deb9-linux.tar.xz
+        sha256: 1cddb907393a669342b1a922dd16d505d9d93d50bd9433a54a8162f8701250dc
         only-arches:
           - i386
     build-commands:
@@ -106,8 +106,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://hackage.haskell.org/package/vector-0.12.0.2/vector-0.12.0.2.tar.gz
-        sha256: 52e89dacaff10bedb8653181963cae928f9674a099bb706713dae83994bbc0f3
+        url: https://hackage.haskell.org/package/vector-0.12.0.3/vector-0.12.0.3.tar.gz
+        sha256: b8a2bfbf9d22d34a28cde9b9e92bfb054e46797754154dd5883295c38936e5a8
     build-commands:
       - runhaskell Setup configure --prefix=/app
       - runhaskell Setup build
@@ -119,8 +119,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://hackage.haskell.org/package/network-2.8.0.0/network-2.8.0.0.tar.gz
-        sha256: c8905268b7e3b4cf624a40245bf11b35274a6dd836a5d4d531b5760075645303
+        url: https://hackage.haskell.org/package/network-2.8.0.1/network-2.8.0.1.tar.gz
+        sha256: 61f55dbfed0f0af721a8ea36079e9309fcc5a1be20783b44ae500d9e4399a846
     build-commands:
       - runhaskell Setup configure --prefix=/app
       - runhaskell Setup build
@@ -145,8 +145,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://hackage.haskell.org/package/transformers-compat-0.6.2/transformers-compat-0.6.2.tar.gz
-        sha256: dc06228b7b8a546f9d257b4fe2b369fc2cb279240bbe4312aa8f47bb2752e4be
+        url: https://hackage.haskell.org/package/transformers-compat-0.6.5/transformers-compat-0.6.5.tar.gz
+        sha256: da67cf11515da751b32a8ce6e96549f7268f7c435769ad19dc9766b69774620b
     build-commands:
       - runhaskell Setup configure --prefix=/app
       - runhaskell Setup build
@@ -158,8 +158,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://hackage.haskell.org/package/exceptions-0.10.1/exceptions-0.10.1.tar.gz
-        sha256: 3ba4032df6b115bab1dad294948cf43fb9e1f566d3c513e9e1c363131739df9d
+        url: https://hackage.haskell.org/package/exceptions-0.10.2/exceptions-0.10.2.tar.gz
+        sha256: 918c2ccbfb03caff826726bb7bf5170734b393817ace939f8dea86d60fc1512a
     build-commands:
       - runhaskell Setup configure --prefix=/app
       - runhaskell Setup build
@@ -203,8 +203,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://hackage.haskell.org/package/unordered-containers-0.2.9.0/unordered-containers-0.2.9.0.tar.gz
-        sha256: 6730cb5c4a3e953e2c199d6425be08fd088ff0089a3e140d63226c052e318250
+        url: https://hackage.haskell.org/package/unordered-containers-0.2.10.0/unordered-containers-0.2.10.0.tar.gz
+        sha256: 65f117bdbdea9efc75fb9fd539873de7687e005d8898bb21821020a4b383c573
     build-commands:
       - runhaskell Setup configure --prefix=/app
       - runhaskell Setup build
@@ -395,8 +395,8 @@ modules:
     buildsystem: simple
     sources:
       - type: archive
-        url: https://hackage.haskell.org/package/regex-tdfa-1.2.3.1/regex-tdfa-1.2.3.1.tar.gz
-        sha256: 8aaaeeecf050807c7c514d4dd1763ac63bd121782de5a0847bef5d48a095ea50
+        url: https://hackage.haskell.org/package/regex-tdfa-1.2.3.2/regex-tdfa-1.2.3.2.tar.gz
+        sha256: 0e8ea50b60abbe998b191005695647fc2fcb544bdf5b6829b7e7a48f33bed00f
     build-commands:
       - runhaskell Setup configure --prefix=/app
       - runhaskell Setup build
@@ -440,8 +440,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/ImageMagick/ImageMagick
-        tag: 7.0.8-45
-        commit: dd952736f745d7dd9d1e0b8bb20e6384f10da139
+        tag: 7.0.8-50
+        commit: a83da8a5995564eb9c7065468d29ab3d3284d2ba
     cleanup:
       - '*'
 
