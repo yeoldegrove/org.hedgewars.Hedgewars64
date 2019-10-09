@@ -465,8 +465,8 @@ modules:
         done
     sources:
       - type: archive
-        url: https://www.hedgewars.org/download/releases/hedgewars-src-0.9.25.tar.bz2
-        sha256: b35d7334b6785305dd4f0129b646d1277ad58528cf8029b05bf642e02f76a723
+        url: https://www.hedgewars.org/download/releases/hedgewars-src-1.0.0.tar.bz2
+        sha256: cc1ec1efd82d9761183504d9ae41b70780f021f98e968a9d9ef37b76d2743c62
       - type: patch
         path: hedgewars-appdata.patch
     cleanup:
