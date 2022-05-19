@@ -1,6 +1,6 @@
 app-id: org.hedgewars.Hedgewars
 runtime: org.kde.Platform
-runtime-version: '5.15-21.08'
+runtime-version: 5.15-21.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm13
@@ -73,13 +73,14 @@ modules:
       - --without-xml
     sources:
       - type: archive
-        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-34.tar.gz
-        sha256: 6a5bc9627ecff8cc35f99a7e10b395de6c02b4ddce46522e9d6362a90f7a1043
+        url: https://github.com/ImageMagick/ImageMagick/archive/refs/tags/7.1.0-35.tar.gz
+        sha256: b368a792a3f104c819b496b495348e53ae28b8d15b71c18ced886083822ff30c
         x-checker-data:
           type: json
           url: https://api.github.com/repos/ImageMagick/ImageMagick/releases/latest
-          version-query: '.tag_name'
-          url-query: '"https://github.com/ImageMagick/ImageMagick/archive/refs/tags/" + $version + ".tar.gz"'
+          version-query: .tag_name
+          url-query: '"https://github.com/ImageMagick/ImageMagick/archive/refs/tags/"
+            + $version + ".tar.gz"'
     cleanup:
       - '*'
 
@@ -94,7 +95,7 @@ modules:
         x-checker-data:
           type: html
           url: https://www.freepascal.org/download.html
-          version-pattern: 'The latest release is <b>([^<]+)</b>'
+          version-pattern: The latest release is <b>([^<]+)</b>
           url-template: https://sourceforge.net/projects/freepascal/files/Linux/$version/fpc-$version.x86_64-linux.tar
       - type: archive
         url: https://sourceforge.net/projects/freepascal/files/Linux/3.2.2/fpc-3.2.2.aarch64-linux.tar
@@ -104,12 +105,12 @@ modules:
         x-checker-data:
           type: html
           url: https://www.freepascal.org/download.html
-          version-pattern: 'The latest release is <b>([^<]+)</b>'
+          version-pattern: The latest release is <b>([^<]+)</b>
           url-template: https://sourceforge.net/projects/freepascal/files/Linux/$version/fpc-$version.aarch64-linux.tar
     build-commands:
       - install -d /app/bin
       - printf '%s\n' /app n n | ./install.sh
-      - | # Install config
+      - |
         LIBDIR="/app/lib/fpc/$(fpc -iV)"
         "${LIBDIR}/samplecfg" "${LIBDIR}" /app/lib/fpc/etc
     cleanup:
@@ -123,8 +124,9 @@ modules:
         x-checker-data:
           type: json
           url: https://api.github.com/repos/numactl/numactl/releases/latest
-          version-query: '.tag_name'
-          url-query: '.assets[] | select(.name == "numactl-" + ($version | sub("^v"; "")) + ".tar.gz").browser_download_url'
+          version-query: .tag_name
+          url-query: .assets[] | select(.name == "numactl-" + ($version | sub("^v";
+            "")) + ".tar.gz").browser_download_url
     cleanup:
       - /bin
 
@@ -344,8 +346,10 @@ modules:
         x-checker-data:
           type: json
           url: https://hackage.haskell.org/package/sandi.json
-          version-query: 'to_entries | sort_by([.value=="normal",(.key|split(".")|map(tonumber))[]]) | .[-1].key'
-          url-query: '"https://hackage.haskell.org/package/sandi-" + $version + "/sandi-" + $version + ".tar.gz"'
+          version-query: to_entries | sort_by([.value=="normal",(.key|split(".")|map(tonumber))[]])
+            | .[-1].key
+          url-query: '"https://hackage.haskell.org/package/sandi-" + $version + "/sandi-"
+            + $version + ".tar.gz"'
       - type: shell
         commands:
           - echo -e 'import Distribution.Simple\nmain = defaultMain' > Setup.hs
@@ -533,15 +537,15 @@ modules:
         x-checker-data:
           type: html
           url: https://www.hedgewars.org/download.html
-          pattern: 'href="(/download/releases/hedgewars-src-([\d.]+).tar[^"]*)"'
+          pattern: href="(/download/releases/hedgewars-src-([\d.]+).tar[^"]*)"
       - type: patch
         path: hedgewars-appdata.patch
       - type: shell
         commands:
           - sed -i 's|APPEND haskell_flags|\0 "-L/app/lib"|' CMakeLists.txt
-          - | # Fix compatibility with QT 5.15
+          - |
             sed -i '/#include <QSizePolicy>/a #include <QPainterPath>' QTfrontend/ui/page/pagegamestats.cpp
-          - | # https://bugs.freepascal.org/view.php?id=37286
+          - |
             sed -i 's/\(procedure ShiftWorld(Dir: LongInt);\) inline;/\1/' hedgewars/uWorld.pas
     cleanup:
       - /share/pixmaps
