@@ -526,8 +526,8 @@ modules:
         done
     sources:
       - type: archive
-        url: https://www.hedgewars.org/download/releases/hedgewars-src-1.0.0.tar.bz2
-        sha256: 211634e61f2e4beecc3c98c6f749601fcd08321fda1ba969b3b3832a004f155b
+        url: https://www.hedgewars.org/download/releases/hedgewars-src-1.0.1.tar.bz2
+        sha256: 0c41f979b378f0eb416a801e1e907f64cac94ba61c53dfa441db6e1f3a777383
         # IMPORTANT: Manual update of hedgewars-appdata.patch required
         x-checker-data:
           type: html
@@ -535,11 +535,5 @@ modules:
           pattern: 'href="(/download/releases/hedgewars-src-([\d.]+).tar[^"]*)"'
       - type: patch
         path: hedgewars-appdata.patch
-      - type: shell
-        commands:
-          - | # Fix compatibility with QT 5.15
-            sed -i '/#include <QSizePolicy>/a #include <QPainterPath>' QTfrontend/ui/page/pagegamestats.cpp
-          - | # https://bugs.freepascal.org/view.php?id=37286
-            sed -i 's/\(procedure ShiftWorld(Dir: LongInt);\) inline;/\1/' hedgewars/uWorld.pas
     cleanup:
       - /share/pixmaps
